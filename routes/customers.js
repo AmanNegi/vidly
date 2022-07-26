@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 const router = require("express").Router();
 const { Customer, validate  } = require("../models/customer");
+const auth = require("../middleware/auth");
 
 router.get("", async function (req, res) {
   var customers = await Customer.find();
   res.send(customers);
 });
 
-router.post("", async function (req, res) {
+router.post("",auth, async function (req, res) {
   var validatedcustomer = validate(req.body);
   console.log(validatedcustomer);
   if (validatedcustomer.error)
@@ -21,7 +22,7 @@ router.post("", async function (req, res) {
   res.send(customer);
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",auth, async (req, res) => {
   console.log(req.params);
   var { error } = validate(req.params);
   if (error) return res.status(400).send(error.message);

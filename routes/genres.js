@@ -1,13 +1,15 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const { Genre, validate } = require("../models/genre");
 
-router.get("", async function (req, res) {
+router.get("/", async function (req, res) {
   var genres = await Genre.find();
   res.send(genres);
 });
 
-router.post("", async function (req, res) {
+router.post("/", auth, async function (req, res) {
   var validatedGenre = validate(req.body);
   console.log(validatedGenre);
   if (validatedGenre.error)
@@ -17,7 +19,7 @@ router.post("", async function (req, res) {
   res.send(genre);
 });
 
-router.delete("/:genre", async (req, res) => {
+router.delete("/:genre", admin, async (req, res) => {
   console.log(req.params);
   var { error } = validate(req.params);
   if (error) return res.status(400).send(error.message);
