@@ -1,4 +1,7 @@
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 # Vidly
+
 A simple movie rental application, built using `Node.js`.
 
 ## Project structure
@@ -12,14 +15,14 @@ A simple movie rental application, built using `Node.js`.
 
 ## Packages Used
 
-- "bcrypt": "^5.0.1",
-- "config": "^3.3.7",
-- "express": "^4.18.1",
-- "express-async-errors": "^3.1.1",
-- "joi": "^17.6.0",
-- "joi-objectid": "^4.0.2",
-- "jsonwebtoken": "^8.5.1",
-- "lodash": "^4.17.21",
-- "mongoose": "^6.4.6",
-- "winston": "^3.8.1",
-- "winston-mongodb": "^5.0.7"
+- bcrypt
+- config
+- express
+- express-async-errors
+- joi
+- joi-objectid
+- jsonwebtoken
+- lodash
+- mongoose
+- winston
+- winston-mongodb
